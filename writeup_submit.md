@@ -71,7 +71,7 @@ As suggested in [Sermanet and LeCun's publication](http://yann.lecun.com/exdb/pu
 
 Here is an example of a traffic sign image before and after grayscaling, and after contrast equalization processing.
 
-![Preprocessed images][image3]
+![Prepocessed Images][image3]
 
 
 
