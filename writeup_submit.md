@@ -69,7 +69,7 @@ Ten random samples are also visualized for each type of sign in the [Jupyter Not
 
 As suggested in [Sermanet and LeCun's publication](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), color information is not that helpful to improve classifier's performance. Therefore, my first step was to convert the images to grayscale, which reduced the datasize and led to faster training. By looking closer into the transformed images, I discovered that some images with low exposure were not well handeled by grayscale conversion, and contrast equalization process were applied to enchance images' contrast.
 
-Here is an example of ten samples of traffic sign 'speed limit 60 (km/h)' before and after grayscaling, and after contrast equalization processing.
+Here is an example of ten samples of traffic sign speed limit 60 (km/h)' before and after grayscaling, and after contrast equalization processing.
 
 ![Prepocessed Images][image3]
 
