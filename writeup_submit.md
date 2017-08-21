@@ -37,7 +37,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/RuiyeNi/CarND-Term1-Project2-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier_Submit.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -56,10 +56,10 @@ signs data set:
 
 Here is an exploratory visualization of the data set. Each image is 32x32x3 in RGB, and one examplar image is displayed below with its sign labeled. 
 
-![Single image visualization][image1]
+![Visualization][image1]
 
 There are totally 43 signs and their distribuiton in the training dataset is visualized in a histogram. As shown in the figure, training dataset is not very balanced across different labels. 
-![Class distribution][image2]
+![Class Distribution][image2]
 
 Ten random samples are also visualized for each type of sign in the [Jupyter Notebook](https://github.com/RuiyeNi/CarND-Term1-Project2-Traffic-Sign-Classifier/master/Traffic_Sign_Classifier_Submit.ipynb)
 
@@ -98,12 +98,12 @@ My final model consisted of the following layers:
 | Softmax               | output 43                                     |
 
 
-
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+ 
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used an AdamOptimizer with learning rate 0.001, batch size 128 and epochs 100. Early stopping was also applied to prevent overfitting. 
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
 * training set accuracy of 99.3%
@@ -112,6 +112,8 @@ My final model results were:
 
 I started with the well-known LeNet architecture since it demonsrtated good performance for classifying digits' images in the previous project. Convolution network was also expected to work well on traffic sign images with slightly distortion. With the default LeNet architecture, training set accuracy could achieve nearly 100% accuracy, but validation accuracy was barely around 90%, which indicated the model wasn't generalized well enough and there was an overfitting problem. To tackle the overfitting, I tried mainly two ways. On one hand, I added dropout layers after two fully connected layers so that the model weights would be optmized for more generalization. On the other hand, I tuned the batch size and number of epochs, and applied early stopping to obtain model trained with least validation loss. Dropout rates were exprimented between 0.5 and 0.9, batch size was tested between 30 and 256, epoches were tried from 10 to 300, and learning rate was chosen between 0.0005 and 0.001. Finally, I came up with a model with improved validaiton accuray of 95% by using learning rate 0.001, epoches 100, batch size 128, dropout rate 0.8 for the first fully connected layer, and dropout rate 0.9 for the second fully connected layer. Though it seemed there was still room to improve the model's performance, dropout was proved to be able to alleviate overfitting. Give more time, data augmentation, such as adding noise to training set and distort training samples could be further experimented to build a more robust model. 
 
+Here is a image shows the training process:
+![Train valid Accuracy][image4]
 
 
 ### Test a Model on New Images
@@ -158,11 +160,13 @@ For the first images:
 | 0.00					| Turn Left Ahead								|
 | 0.00	      			| Roundabout Mandatory			 				|
 | 0.00				    | Go Straight or Left   						|
+
 ![Predict1][image7]
 
 
 
 For the second image:
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | 0.99         			| Road Work  									|
@@ -170,11 +174,13 @@ For the second image:
 | 0.00					| Pedestrians									|
 | 0.00	      			| Right-of-way at the Next Intersection			|
 | 0.00				    | Slippery Road      							|
+
 ![Predict2][image8]
 
 
 
-For the third image ...
+For the third image :
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | 0.95         			| Stop       									|
@@ -182,11 +188,13 @@ For the third image ...
 | 0.00					| Speed Limit (60km/h)							|
 | 0.00	      			| Yield				 			   				|
 | 0.00				    | Turn Right Ahead     							|
+
 ![Predict3][image9]
 
 
 
-For the fourth image ...
+For the fourth image :
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | 1.00         			| Yield  										|
@@ -194,11 +202,13 @@ For the fourth image ...
 | 0.00					| No Vehicles									|
 | 0.00	      			| Speed Limit (50km/h)							|
 | 0.00				    | Speed Limit (60km/h)   						|
+
 ![Predict4][image10]
 
 
 
-For the fifth image ...
+For the fifth image :
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | 1.00         			| Speed Limit (30km/h) 							|
@@ -206,6 +216,7 @@ For the fifth image ...
 | 0.00					| Speed Limit (80km/h)							|
 | 0.00	      			| Keep Right					 				|
 | 0.00				    | Speed Limit (20km/h)   						|
+
 ![Predict5][image11]
 
 
