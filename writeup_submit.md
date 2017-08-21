@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./SingleExample.png "Visualization"
 [image2]: ./ClassDistribution.png "Class Distribution"
-[image3]: ./PPreprocessedExample.png "Prepocessed Images"
+[image3]: ./PreprocessedExample.png "Prepocessed Images"
 [image4]: ./TrainValidTestAccuracy.png "Performance"
 [image5]: ./ResizedFiveNewImages.png "Five New Images"
 [image6]: ./PreprocessedFiveNewImages.png "Preprocessed Five New Images"
