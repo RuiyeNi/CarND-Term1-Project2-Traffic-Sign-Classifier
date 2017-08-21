@@ -69,7 +69,7 @@ Ten random samples are also visualized for each type of sign in the [Jupyter Not
 
 As suggested in [Sermanet and LeCun's publication](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), color information is not that helpful to improve classifier's performance. Therefore, my first step was to convert the images to grayscale, which reduced the datasize and led to faster training. By looking closer into the transformed images, I discovered that some images with low exposure were not well handeled by grayscale conversion, and contrast equalization process were applied to enchance images' contrast.
 
-Here is an example of a traffic sign image before and after grayscaling, and after contrast equalization processing.
+Here is an example of ten samples of traffic sign 'speed limit 60 (km/h)' before and after grayscaling, and after contrast equalization processing.
 
 ![Prepocessed Images][image3]
 
@@ -110,7 +110,7 @@ My final model results were:
 * validation set accuracy of 95.0%
 * test set accuracy of 92.7%
 
-I started with the well-known LeNet architecture since it demonsrtated good performance for classifying digits' images in the previous project. Convolution network was also expected to work well on traffic sign images with slightly distortion. With the default LeNet architecture, training set accuracy could achieve nearly 100% accuracy, but validation accuracy was barely around 90%, which indicated the model wasn't generalized well enough and there was an overfitting problem. To tackle the overfitting, I tried mainly two ways. On one hand, I added dropout layers after two fully connected layers so that the model weights would be optmized for more generalization. On the other hand, I tuned the batch size and number of epochs, and applied early stopping to obtain model trained with least validation loss. Dropout rates were exprimented between 0.5 and 0.9, batch size was tested between 30 and 256, epoches were tried from 10 to 300, and learning rate was chosen between 0.0005 and 0.001. Finally, I came up with a model with improved validaiton accuray of 95% by using learning rate 0.001, epoches 100, batch size 128, dropout rate 0.8 for the first fully connected layer, and dropout rate 0.9 for the second fully connected layer. Though it seemed there was still room to improve the model's performance, dropout was proved to be able to alleviate overfitting. Give more time, data augmentation, such as adding noise to training set and distort training samples could be further experimented to build a more robust model. 
+I started with the well-known LeNet architecture since it demonsrtated good performance for classifying digits' images in the previous project. Convolution network was also expected to work well on traffic sign images with slightly distortion. With the default LeNet architecture, training set accuracy could achieve nearly 100% accuracy, but validation accuracy was barely around 90%, which indicated the model wasn't generalized well enough and there was an overfitting problem. To tackle the overfitting, I tried mainly two ways. On one hand, I added dropout layers after two fully connected layers so that the model weights would be optmized for more generalization. On the other hand, I tuned the batch size and number of epochs, and applied early stopping to obtain model trained with least validation loss. Dropout rates were exprimented between 0.5 and 0.9, batch size was tested between 30 and 256, epoches were tried from 10 to 300, and learning rate was chosen between 0.0005 and 0.001. Finally, I came up with a model with improved validaiton accuray of 95% by using learning rate 0.001, epoches 100, batch size 128, dropout rate 0.8 for the first fully connected layer, and dropout rate 0.9 for the second fully connected layer. Though it seemed there was still room to improve the model's performance, dropout was proved to be able to alleviate overfitting. Given more time, data augmentation, such as adding noise to training set and distort training samples, could be further experimented to build a more robust model. 
 
 Here is a image shows the training process:
 ![Train valid Accuracy][image4]
@@ -143,7 +143,7 @@ Here are the results of the prediction:
 | 30 km/h   			| 30 km/h            							|
 
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This result is better than the test set accuracy 92.7%. 
+The model was able to correctly guess all of the 5 traffic signs, which gives an accuracy of 100%. This result is better than the test set accuracy 92.7%. 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
